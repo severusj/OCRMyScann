@@ -1,11 +1,24 @@
-<hr>{{ mytext }}<br>
-<hr>
-<div *ngFor="let words of mywords">
-  {{ words }}
-</div>
-<hr>{{ myconfidence }}<br>
-<hr>{{ myblocks }}<br>
-<hr>{{ mylines }}<br>
-<hr>{{ myhtml }}<br>
-<hr>{{ myparagraphs }}<br>
-<hr>{{ mysymbols }}<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="mb-5">OCR</h1>
+      <h2 class="mt-5">Imagem</h2>
+      <input type="file" capture="camera" [(ngModel)]="camera" accept="image/*" id="cameraInput"
+        name="cameraInput" (change)="onFileSelected($event)">
+      <button type="button" (click)="onUpload()">Upload File</button>
+      <p>status: {{status}}</p>
+      <p>confidence: {{ confidence }}</p>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped" role="progressbar"
+          attr.style='width: 25%' attr.aria-valuenow="{{ confidence }}"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <h2>Image</h2>
+      <img *ngIf="camera" [src]="camera" />
+      <h2>Result</h2>
+      <div class="form-group">
+        <textarea rows="10" class="form-control">{{ text }}</textarea>
+      </div>
+    </div>
+  </div>
+</div>>
