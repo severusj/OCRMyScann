@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { OcrComponent } from './ocr/ocr.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OcrComponent
   ],
   imports: [
     BrowserModule
