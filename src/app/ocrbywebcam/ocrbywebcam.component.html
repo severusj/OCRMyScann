@@ -1,20 +1,33 @@
-<h1 class="mb-5">OCR</h1>
-<h2 class="mt-5">Imagem</h2>
-<webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
-  *ngIf="showWebcam"></webcam>
-<br>
-<button class="btn btn-default" (click)="triggerSnapshot();">Take Snapshot</button>
-<button class="btn btn-default" (click)="toggleWebcam();">Toggle Webcam</button>
-<p>status: {{status}}</p>
-<p>confidence: {{ confidence }}</p>
-<div class="progress">
-  <div class="progress-bar progress-bar-striped" role="progressbar"
-    attr.style='width: 25%' attr.aria-valuenow="{{ confidence }}"
-    aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-<h2>Image</h2>
-<img *ngIf="camera" [src]="camera" />
-<h2>Result</h2>
-<div class="form-group">
-  <textarea rows="10" class="form-control">{{ text }}</textarea>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="form-group mx-auto">
+        <button class="btn btn-dark btn-block" style="max-width: 640px"
+          (click)="toggleWebcam();">Toggle Webcam</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+        *ngIf="showWebcam"></webcam>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="form-group mx-auto">
+        <button class="btn btn-dark btn-block" style="max-width: 640px"
+          (click)="triggerSnapshot();">Take Snapshot</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p>Status: {{status}} / {{ confidence }}</p>
+      <h2>Result</h2>
+      <div class="form-group">
+        <textarea rows="7" class="form-control">{{ text }}</textarea>
+      </div>
+    </div>
+  </div>
 </div>

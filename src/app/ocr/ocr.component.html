@@ -2,11 +2,19 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <button class="btn btn-default" (click)="toggleMode('cam')">OCR BY WEBCAM/IMAGE</button>
-
-      <app-ocrbywebcam *ngIf="modeCam"></app-ocrbywebcam>
-      <app-ocrbyimage *ngIf="modeImage"></app-ocrbyimage>
-
+      <h1 class="my-3">OCR</h1>
     </div>
   </div>
-</div>>>
+  <div class="row">
+    <div class="col-lg-12">
+      <button class="btn btn-danger btn-block" (click)="toggleMode('cam')">CHANGE
+        MODE (IMAGE <-> CAM)</button>
+      <div class="row">
+        <div class="col-lg-12">
+          <app-ocrbywebcam *ngIf="modeCam"></app-ocrbywebcam>
+          <app-ocrbyimage *ngIf="modeImage"></app-ocrbyimage>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

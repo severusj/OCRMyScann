@@ -3,7 +3,6 @@ import { OcrService } from '../ocr.service';
 import { Observable } from 'rxjs/Observable';
 import * as Tesseract from 'tesseract.js';
 
-
 @Component({
   selector: 'app-ocrbyimage',
   templateUrl: './ocrbyimage.component.html',
