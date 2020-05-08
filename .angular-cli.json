@@ -22,7 +22,8 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -57,5 +58,5 @@
   "defaults": {
     "styleExt": "scss",
     "component": {}
-  }
+  } 
 }

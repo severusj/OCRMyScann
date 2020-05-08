@@ -3,7 +3,7 @@
     <div class="col-lg-8 mx-auto">
       <div class="form-group mx-auto">
         <button class="btn btn-dark btn-block" style="max-width: 640px"
-          (click)="toggleWebcam();">Toggle Webcam</button>
+          (click)="toggleWebcam();">Cambiar a Cámara</button>
       </div>
     </div>
   </div>
@@ -17,17 +17,20 @@
     <div class="col-lg-8 mx-auto">
       <div class="form-group mx-auto">
         <button class="btn btn-dark btn-block" style="max-width: 640px"
-          (click)="triggerSnapshot();">Take Snapshot</button>
+          (click)="triggerSnapshot();">Tomar</button>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
       <p>Status: {{status}} / {{ confidence }}</p>
-      <h2>Result</h2>
-      <div class="form-group">
+      <h2>Resultado</h2>
+      <div class="form-group" id="textoarea" >
         <textarea rows="7" class="form-control">{{ text }}</textarea>
       </div>
     </div>
   </div>
 </div>
+<form id="form1" name="form1"type="Submit"> 
+  <input class="btn btn-dark" (click)="crearPdf()" type="button" value="Descargar" /> 
+</form> 

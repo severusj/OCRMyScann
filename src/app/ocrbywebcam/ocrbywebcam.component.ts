@@ -4,6 +4,8 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { OcrService } from '../ocr.service';
 import * as Tesseract from 'tesseract.js';
+import domtoimage from 'dom-to-image';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-ocrbywebcam',
@@ -42,7 +44,7 @@ export class OcrbywebcamComponent implements OnInit {
     return this.trigger.asObservable();
   }
 
-  recognize(img) {
+  recognize(img: string) {
     Tesseract.recognize(img)
       .progress((progress) => {
         this.confidence = progress.progress;
@@ -55,6 +57,19 @@ export class OcrbywebcamComponent implements OnInit {
       })
       .finally(resultOrError => console.log(resultOrError));
   }
+  crearPdf()
+ {
+
+  
+  var documentitouwu = new jsPDF('letter')
+  var ta = document.getElementById('textoarea');
+  documentitouwu.fromHTML(ta, 15,15);
+  var f=new Date();
+  var n=f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+  
+  documentitouwu.save('MyScann '+n+'.pdf'); 
+
+}
 
 
 }

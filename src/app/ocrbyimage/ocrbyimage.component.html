@@ -1,24 +1,86 @@
+<link rel="script" href="ocrbyimage.component.ts">
 <div class="container mt-3">
   <div class="row">
     <div class="col-lg-12">
-      <div class="form-group">
+      <div class="form-group text-center">
+        
         <input class="form-control" type="file" capture="camera"
           [(ngModel)]="camera" accept="image/*" id="cameraInput"
           name="cameraInput" (change)="onFileSelected($event)">
+          
+          <label for="cameraInput" class="btn btninput">Subir Archivo</label>
       </div>
       <div class="form-group">
-        <button class="btn btn-dark btn-block" type="button"
-          (click)="onUpload()">RECOGNIZE</button>
+        <button class="btn btn-dark btn-block " type="button"
+          (click)="validarImagen('cameraInput')" id="btn-abrir-popup">¡Haer OCR!</button>
+          <!-- <button id="btn-abrir-popup" class="btn-abrir-popup" (click)="validarImagen()">Abrir Ventana Emergente</button> -->
       </div>
+    
       <div class="row">
         <div class="col-lg-12">
-          <p>Status: {{status}} / {{ confidence }}</p>
-          <h2>Result</h2>
-          <div class="form-group">
-            <textarea rows="7" class="form-control">{{ text }}</textarea>
+          <p>Estado de proceso: {{status}} / {{ confidence }}</p>
+          <h2>Resultado</h2>
+          <div class="form-group" id="textoarea" style="overflow-wrap: break-word; white-space: pre-line;">
+            <textarea rows="7" id="texto" class="form-control">{{ text }}</textarea>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- <div class="container">
+  <h4>Introduce acá el nombre con el que deseas guardar el archivo</h4>
+</div>
+<div class="container" id="nombrepdf">
+  <input type="text" id="nombre">
+</div> -->
+<form id="form1" name="form1"type="Submit"> 
+  <br>
+  <div class="row container text-center">
+    <div class="col-sm-3">
+      <div class="container">
+        <input class="btn btn-dark" (click)="crearPdf()" type="button" value="Descargar Pdf" /> 
+      </div>
+      <br>
+    </div>
+    <div class="col-sm-3">
+      <div class="container">
+        <input class="btn btn-dark" (click)="Export2Doc('texto', 'My Scann OCR')" type="button" value="Descargar Word" /> 
+      </div>
+    </div>
+    <br>
+    <div class="col-sm-3">
+      <div class="container">
+        <input class="btn btn-dark" (click)="ExportTxt('texto', 'My Scann OCR')" type="button" value="Descargar Txt" /> 
+      </div>
+    </div>
+    <br>
+  </div>
+  <div class="contenedor">
+		<!-- <article>
+			<h1>Ventana Emergente Animada</h1>
+			<button id="btn-abrir-popup" class="btn-abrir-popup" (click)="validarImagen()">Abrir Ventana Emergente</button>
+			
+		</article> -->
+
+		<div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="btn btn-dark" style="color: white;">Cerrar</i></a>
+        <div style="width:50%;height:50%;padding-bottom:50%;position:relative;" >
+          <img src="./assets/401.gif" width="100%" height="100%" style="position:absolute; transform: translateX(40px);">
+        </div>
+        <br>
+        <h1>Ooh shit!</h1>
+        <p>Debes ingresar una imagen, genio.</p>
+				<!-- <form action="">
+					<div class="contenedor-inputs">
+						<input type="text" placeholder="Nombre">
+						<input type="email" placeholder="Correo">
+					</div>
+					<input type="submit" class="btn-submit" value="Suscribirse">
+				</form> -->
+			</div>
+		</div>
+	</div>
+  
+</form> 
