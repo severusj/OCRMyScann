@@ -12,7 +12,7 @@
       </div>
       <div class="form-group">
         <button class="btn btn-dark btn-block " type="button"
-          (click)="validarImagen('cameraInput')" id="btn-abrir-popup">¡Haer OCR!</button>
+          (click)="validarImagen('cameraInput')" id="btn-abrir-popup">¡Hacer OCR!</button>
           <!-- <button id="btn-abrir-popup" class="btn-abrir-popup" (click)="validarImagen()">Abrir Ventana Emergente</button> -->
       </div>
     
@@ -45,16 +45,17 @@
     </div>
     <div class="col-sm-3">
       <div class="container">
-        <input class="btn btn-dark" (click)="Export2Doc('texto', 'My Scann OCR')" type="button" value="Descargar Word" /> 
+        <input id="dwlddoc" class="btn btn-dark" (click)="Export2Doc('texto', 'My Scann OCR')" type="button" value="Descargar Word" /> 
       </div>
     </div>
     <br>
     <div class="col-sm-3">
       <div class="container">
+        
         <input class="btn btn-dark" (click)="ExportTxt('texto', 'My Scann OCR')" type="button" value="Descargar Txt" /> 
       </div>
     </div>
-    <br>
+  
   </div>
   <div class="contenedor">
 		<!-- <article>
@@ -65,13 +66,15 @@
 
 		<div class="overlay" id="overlay">
 			<div class="popup" id="popup">
-				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="btn btn-dark" style="color: white;">Cerrar</i></a>
+				
         <div style="width:50%;height:50%;padding-bottom:50%;position:relative;" >
-          <img src="./assets/401.gif" width="100%" height="100%" style="position:absolute; transform: translateX(40px);">
+          <video loop autoplay src="./assets/401.mp4" width="100%" height="100%" style="position:absolute; transform: translateX(40px);"></video>
         </div>
         <br>
-        <h1>Ooh shit!</h1>
-        <p>Debes ingresar una imagen, genio.</p>
+        <h1>Oopsis!</h1>
+        <p>Casi olvidas ingresar la imagen</p>
+        <br>
+        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><p class="btn btn-dark" style="color: white;">Ok! ya entendí 🙄</p></a>
 				<!-- <form action="">
 					<div class="contenedor-inputs">
 						<input type="text" placeholder="Nombre">

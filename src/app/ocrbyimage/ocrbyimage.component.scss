@@ -94,13 +94,15 @@
     font-size: 16px;
     line-height: 16px;
     display: block;
-    text-align: right;
+    text-align: center;
     transition: .3s ease all;
     color: #BBBBBB;
+    text-decoration: none;
+    
   }
   
   .popup .btn-cerrar-popup:hover {
-    color: #000;
+    color: rgb(107, 11, 11);
   }
   
   .popup h3 {

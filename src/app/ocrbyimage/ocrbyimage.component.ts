@@ -47,10 +47,8 @@ export class OcrbyimageComponent implements OnInit {
     console.log(event.target.files[0]);
   }
 
-  validarImagen()
-  {
-    if(this.image==null)
-    {
+  validarImagen() {
+    if (this.image == null) {
       var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
         overlay = document.getElementById('overlay'),
         popup = document.getElementById('popup'),
@@ -67,98 +65,105 @@ export class OcrbyimageComponent implements OnInit {
         popup.classList.remove('active');
       });
     }
-    else if(this.image!=null)
-    {
+    else if (this.image != null) {
       this.onUpload();
     }
-    
-}
+
+  }
 
   onUpload() {
-     
-      this.recognize(this.image);
- }
 
-
- crearPdf()
- {
-
-  
-  var documentitouwu = new jsPDF('p','pt','letter');  
-  var ta = document.getElementById('textoarea');  
-  var nombre= document.getElementById('nombrepdf');
-   documentitouwu.fromHTML(ta, 15,15);
-  var f=new Date();
-  var n=f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-  
-  documentitouwu.save(nombre+'.pdf'); 
-
-}
-
- Export2Doc(element, filename = ''){
-  var html = document.getElementById(element).innerHTML;
-
-  var blob = new Blob([''], {
-      type: 'application/word'
-  });
-  
-  // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-  var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
-  
-  // Le damos un nombre al archivo con su extension
-  filename = filename?`${filename}.doc`:'document.docx';
-  
-  // Creamos un link (abstracto) para descargar el archivo 
-  var downloadLink = document.createElement("a");
-
-  //document.body.appendChild(downloadLink);
-  
-  if(navigator.msSaveOrOpenBlob ){
-      navigator.msSaveOrOpenBlob(blob, filename);
-  }else{
-      // Creamos un link para el archivo
-      downloadLink.href = url;
-      
-      // Configuramos el nombre ya seteado
-      downloadLink.download = filename;
-      
-      //Mandamos a llamar la funcion del Link con una funcion
-      downloadLink.click();
+    this.recognize(this.image);
   }
-  
-  //document.body.removeChild(downloadLink);
-}
-ExportTxt(element, filename = ''){
-  var html = document.getElementById(element).innerHTML;
 
-  var blob = new Blob([''], {
-      type: 'txt'
-  });
-  
-  // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-  var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
-  
-  // Le damos un nombre al archivo con su extension
-  filename = filename?`${filename}.txt`:'document.txt';
-  
-  // Creamos un link (abstracto) para descargar el archivo 
-  var downloadLink = document.createElement("a");
 
-  //document.body.appendChild(downloadLink);
-  
-  if(navigator.msSaveOrOpenBlob ){
-      navigator.msSaveOrOpenBlob(blob, filename);
-  }else{
-      // Creamos un link para el archivo
-      downloadLink.href = url;
-      
-      // Configuramos el nombre ya seteado
-      downloadLink.download = filename;
-      
-      //Mandamos a llamar la funcion del Link con una funcion
-      downloadLink.click();
+  crearPdf() 
+  {
+
+
+    var documentitouwu = new jsPDF('p', 'pt', 'letter');
+    var ta = document.getElementById('texto');
+    var nombre = document.getElementById('nombrepdf');
+    documentitouwu.fromHTML(ta, 15, 15);
+    var f = new Date();
+    var n = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
+
+    documentitouwu.save('My Scann OCR' + '.pdf');
+
   }
-  
-  //document.body.removeChild(downloadLink);
-}
+
+  // Export2Doc(element, filename = '') {
+    
+  //   var valorTexto= document.getElementById(element).innerHTML;
+  //   var btnBlock = document.getElementById('dwlddoc');
+  //   if (valorTexto == null) {
+  //     btnBlock.setAttribute('disabled','disabled');
+  //   }
+  //   else {
+  //     var html = document.getElementById(element).innerHTML;
+  //     var blob = new Blob([''], {
+  //       type: 'application/word'
+  //     });
+
+  //     // Especificamos la URL y el meta Charset con utf-8 para que sea legible
+  //     var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+
+  //     // Le damos un nombre al archivo con su extension
+  //     filename = filename ? `${filename}.doc` : 'document.docx';
+
+  //     // Creamos un link (abstracto) para descargar el archivo 
+  //     var downloadLink = document.createElement("a");
+
+  //     //document.body.appendChild(downloadLink);
+
+  //     if (navigator.msSaveOrOpenBlob) {
+  //       navigator.msSaveOrOpenBlob(blob, filename);
+  //     } else {
+  //       // Creamos un link para el archivo
+  //       downloadLink.href = url;
+
+  //       // Configuramos el nombre ya seteado
+  //       downloadLink.download = filename;
+
+  //       //Mandamos a llamar la funcion del Link con una funcion
+  //       downloadLink.click();
+  //     }
+
+  //   }
+
+  //   //document.body.removeChild(downloadLink);
+  // }
+  // ExportTxt(element, filename = '') {
+  //   var html = document.getElementById(element).innerHTML;
+
+  //   var blob = new Blob([''], {
+  //     type: 'txt'
+  //   });
+
+  //   // Especificamos la URL y el meta Charset con utf-8 para que sea legible
+  //   var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+
+  //   // Le damos un nombre al archivo con su extension
+  //   filename = filename ? `${filename}.txt` : 'document.txt';
+
+  //   // Creamos un link (abstracto) para descargar el archivo 
+  //   var downloadLink = document.createElement("a");
+
+  //   //document.body.appendChild(downloadLink);
+
+  //   if (navigator.msSaveOrOpenBlob) {
+  //     navigator.msSaveOrOpenBlob(blob, filename);
+  //   } else {
+  //     // Creamos un link para el archivo
+  //     downloadLink.href = url;
+
+  //     // Configuramos el nombre ya seteado
+  //     downloadLink.download = filename;
+
+  //     //Mandamos a llamar la funcion del Link con una funcion
+  //     downloadLink.click();
+  //   }
+
+  //   //document.body.removeChild(downloadLink);
+  // }
 }
