@@ -92,78 +92,82 @@ export class OcrbyimageComponent implements OnInit {
 
   }
 
-  // Export2Doc(element, filename = '') {
+ Export2Doc(element, filename = '') {
     
-  //   var valorTexto= document.getElementById(element).innerHTML;
-  //   var btnBlock = document.getElementById('dwlddoc');
-  //   if (valorTexto == null) {
-  //     btnBlock.setAttribute('disabled','disabled');
-  //   }
-  //   else {
-  //     var html = document.getElementById(element).innerHTML;
-  //     var blob = new Blob([''], {
-  //       type: 'application/word'
-  //     });
+  var valorTexto= document.getElementById(element).innerHTML;
+  var btnBlock = document.getElementById('dwlddoc');
+  if (valorTexto == null) {
+   btnBlock.setAttribute('disabled','disabled');
+  }
+  else {
+  var html = document.getElementById(element).innerHTML;
+  var blob = new Blob([''], {
+   type: 'application/word'
+  });
 
   //     // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-  //     var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+  var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
 
   //     // Le damos un nombre al archivo con su extension
-  //     filename = filename ? `${filename}.doc` : 'document.docx';
+   filename = filename ? `${filename}.doc` : 'document.docx';
 
   //     // Creamos un link (abstracto) para descargar el archivo 
-  //     var downloadLink = document.createElement("a");
+   var downloadLink = document.createElement("a");
 
-  //     //document.body.appendChild(downloadLink);
+  document.body.appendChild(downloadLink);
 
-  //     if (navigator.msSaveOrOpenBlob) {
-  //       navigator.msSaveOrOpenBlob(blob, filename);
-  //     } else {
+  if (navigator.msSaveOrOpenBlob) {
+   navigator.msSaveOrOpenBlob(blob, filename);
+   } else {
   //       // Creamos un link para el archivo
-  //       downloadLink.href = url;
+   downloadLink.href = url;
 
   //       // Configuramos el nombre ya seteado
-  //       downloadLink.download = filename;
+  downloadLink.download = filename;
 
-  //       //Mandamos a llamar la funcion del Link con una funcion
-  //       downloadLink.click();
-  //     }
+    //Mandamos a llamar la funcion del Link con una funcion
+   downloadLink.click();
+   }
 
-  //   }
+  }
 
-  //   //document.body.removeChild(downloadLink);
-  // }
-  // ExportTxt(element, filename = '') {
-  //   var html = document.getElementById(element).innerHTML;
+  document.body.removeChild(downloadLink);
+  }
+  ExportTxt(element, filename = '') {
+   var html = document.getElementById(element).innerHTML;
 
-  //   var blob = new Blob([''], {
-  //     type: 'txt'
-  //   });
+  var blob = new Blob([''], {
+    type: 'txt'
+    });
 
   //   // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-  //   var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+  var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
 
   //   // Le damos un nombre al archivo con su extension
-  //   filename = filename ? `${filename}.txt` : 'document.txt';
+   filename = filename ? `${filename}.txt` : 'document.txt';
 
-  //   // Creamos un link (abstracto) para descargar el archivo 
-  //   var downloadLink = document.createElement("a");
+    // Creamos un link (abstracto) para descargar el archivo 
+   var downloadLink = document.createElement("a");
 
-  //   //document.body.appendChild(downloadLink);
+     document.body.appendChild(downloadLink);
 
-  //   if (navigator.msSaveOrOpenBlob) {
-  //     navigator.msSaveOrOpenBlob(blob, filename);
-  //   } else {
-  //     // Creamos un link para el archivo
-  //     downloadLink.href = url;
+    if (navigator.msSaveOrOpenBlob) {
+      navigator.msSaveOrOpenBlob(blob, filename);
+   } else {
+       // Creamos un link para el archivo
+    downloadLink.href = url;
 
   //     // Configuramos el nombre ya seteado
-  //     downloadLink.download = filename;
+    downloadLink.download = filename;
 
-  //     //Mandamos a llamar la funcion del Link con una funcion
-  //     downloadLink.click();
-  //   }
+  //     Mandamos a llamar la funcion del Link con una funcion
+    downloadLink.click();
+    }
 
-  //   //document.body.removeChild(downloadLink);
-  // }
+     document.body.removeChild(downloadLink);
+   }
+
+
+   
+
 }

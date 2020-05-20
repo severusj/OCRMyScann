@@ -16,6 +16,7 @@
           <!-- <button id="btn-abrir-popup" class="btn-abrir-popup" (click)="validarImagen()">Abrir Ventana Emergente</button> -->
       </div>
     
+      
       <div class="row">
         <div class="col-lg-12">
           <p>Estado de proceso: {{status}} / {{ confidence }}</p>
@@ -37,26 +38,67 @@
 <form id="form1" name="form1"type="Submit"> 
   <br>
   <div class="row container text-center">
+    <!--Boton de Descargar PDF-->
     <div class="col-sm-3">
       <div class="container">
         <input class="btn btn-dark" (click)="crearPdf()" type="button" value="Descargar Pdf" /> 
       </div>
       <br>
     </div>
+    <!--Boton de Descargar Word-->
     <div class="col-sm-3">
       <div class="container">
         <input id="dwlddoc" class="btn btn-dark" (click)="Export2Doc('texto', 'My Scann OCR')" type="button" value="Descargar Word" /> 
       </div>
     </div>
     <br>
+    
+    <!-- Boton de Descargar TXT-->
     <div class="col-sm-3">
       <div class="container">
         
         <input class="btn btn-dark" (click)="ExportTxt('texto', 'My Scann OCR')" type="button" value="Descargar Txt" /> 
+        
       </div>
     </div>
+
+    <!--<div class="col-sm-3">
+      <div class="container">
+        <input type="button" value="Clear" id="clear"
+        onclick='<META HTTP-EQUIV="Refresh" CONTENT="0;URL=">'> 
+      </div>
+     
+    </div>
+     -->
   
   </div>
+  <div class ="form-group">
+
+  </div>
+  <div class ="form-group">
+    <h2>
+      --------------------------------------------------------------------------------------
+    </h2>
+</div>
+
+  <!--Aqui va el boton de Ayuda-->
+  <div class ="form-group">
+    <a href="https://neverstopdreaming8.wixsite.com/website/servicio-al-cliente" target="_blank" ><input type="button" class="btn-dark btn-block" value="AYUDA"></a>
+  </div>
+  <!--Aqui va el boton de soporte tecnico-->
+  <div class ="form-group">
+    <a href="https://neverstopdreaming8.wixsite.com/website/planes-y-precios" target="_blank" ><input type="button" class="btn-dark btn-block" value="SOPORTE TECNICO"></a>
+  </div>
+<!--Aqui va el boton de contacto-->
+<div class ="form-group">
+  <a href="https://neverstopdreaming8.wixsite.com/website/quienes-somos" target="_blank" ><input type="button" class="btn-dark btn-block" value="CONTACTO"></a>
+</div>
+<!--Aqui va el boton de documentacion-->
+<div class ="form-group">
+  <a href="https://drive.google.com/open?id=1mhm6hwukbJepu9SHnGqW8yygTxYOKvPZ" target="_blank" ><input type="button" class="btn-dark btn-block" value="DOCUMENTACION"></a>
+</div>
+
+
   <div class="contenedor">
 		<!-- <article>
 			<h1>Ventana Emergente Animada</h1>
@@ -81,7 +123,12 @@
 						<input type="email" placeholder="Correo">
 					</div>
 					<input type="submit" class="btn-submit" value="Suscribirse">
-				</form> -->
+        </form> -->
+        
+
+     
+
+
 			</div>
 		</div>
 	</div>
