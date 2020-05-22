@@ -1,0 +1,11 @@
+1. Ubicarse en la carpeta a Clonar el repositorio:
+	git clone https://github.com/severusj/myscann.git
+2. ubicarnos sobre la carpeta del proyecto: escribir git init en el bash 
+3. Escribir: git remote set-url origin https://github.com/severusj/myscann.git
+	ésto nos servirá para añadir el servicio remoto del repositorio en github
+4. Luego verificamos que se halla añadido correctamente: git remote -v
+5. Al realizar un cambio, verificamos que se halla agregado correctamente 
+		git status (nos aparecerán los cambios que se hayan realizado en el proyecto)
+6. Añadimos los cambios para preparar el commit: git add -A
+7. Realizamos el commit: git commit -m "Descripción de qué se cambió y en donde"
+8. Expulsar los cambios al repositorio remoto (push): git push -u
