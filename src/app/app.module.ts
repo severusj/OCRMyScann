@@ -9,7 +9,7 @@ import { OcrComponent } from './ocr/ocr.component';
 import { OcrbywebcamComponent } from './ocrbywebcam/ocrbywebcam.component';
 import { OcrbyimageComponent } from './ocrbyimage/ocrbyimage.component';
 import { OcrService } from './ocr.service';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { OcrService } from './ocr.service';
   imports: [
     BrowserModule,
     FormsModule,
-    WebcamModule
+    WebcamModule,
+    
   ],
   providers: [OcrService],
   bootstrap: [AppComponent]

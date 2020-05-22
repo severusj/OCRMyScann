@@ -166,8 +166,5 @@ export class OcrbyimageComponent implements OnInit {
 
      document.body.removeChild(downloadLink);
    }
-
-
    
-
 }
