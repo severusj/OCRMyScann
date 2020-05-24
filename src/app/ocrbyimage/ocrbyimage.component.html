@@ -7,7 +7,6 @@
         <input class="form-control" type="file" capture="camera"
           [(ngModel)]="camera" accept="image/*" id="cameraInput"
           name="cameraInput" (change)="onFileSelected($event)">
-          
           <label for="cameraInput" class="btn btninput">Subir Archivo</label>
       </div>
       <div class="form-group">
@@ -15,8 +14,6 @@
           (click)="validarImagen('cameraInput')" id="btn-abrir-popup">¡Hacer OCR!</button>
           <!-- <button id="btn-abrir-popup" class="btn-abrir-popup" (click)="validarImagen()">Abrir Ventana Emergente</button> -->
       </div>
-    
-      
       <div class="row">
         <div class="col-lg-12">
           <p>Estado de proceso: {{status}} / {{ confidence }}</p>
@@ -56,12 +53,27 @@
     <!-- Boton de Descargar TXT-->
     <div class="col-sm-3">
       <div class="container">
-        
         <input class="btn btn-dark" (click)="ExportTxt('texto', 'My Scann OCR')" type="button" value="Descargar Txt" /> 
-        
       </div>
     </div>
+    
+    <!--Boton de BD-->
+    <div> 
+      <h4>
+        Subir A Drive
+      </h4>
+    <div class="separator" style="clear: both; text-align: center;">
+      <a href="http://drive.google.com/" target="_blank">
+        <img alt="drive.google.com" border="0" data-original-height="100" data-original-width="100" height="80" src="https://1.bp.blogspot.com/-rJXigg9SN7M/XsnU2sa55WI/AAAAAAAAAVQ/aqx0x8Gih286Zgda7Ctoy3odccODXxstgCLcBGAsYHQ/s200/kisspng-square-triangle-logo-brand-apps-google-drive-5ab0f94705ccb3.3463854415215475910238.png" width="80" /></a></div>
+      <div class="separator" style="clear: both; text-align: center;">
+      <br /></div>
+      <br />
+    </div>
 
+
+    <div class="separator">
+
+    </div>
     <!--<div class="col-sm-3">
       <div class="container">
         <input type="button" value="Clear" id="clear"
@@ -70,7 +82,9 @@
      
     </div>
      -->
-  
+     
+   
+
   </div>
   <div class="contenedor">
 		<div class="overlay" id="overlay">

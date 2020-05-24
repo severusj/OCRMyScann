@@ -8,7 +8,10 @@ import * as $ from 'jquery';
 import * as docx from "docx";
 import * as fs from "fs";
 import { Document, Packer, Paragraph, TextRun } from "docx";
-
+import { UrlResolver } from '@angular/compiler';
+import { prototype } from 'events';
+import { stringify } from 'querystring';
+ 
 
 @Component({
   selector: 'app-ocrbyimage',
@@ -79,9 +82,7 @@ export class OcrbyimageComponent implements OnInit {
 
   crearPdf() 
   {
-
-
-    var documentitouwu = new jsPDF('p', 'pt', 'letter');
+    var documentitouwu = new jsPDF('p', 'pt', 'letter'); 
     var ta = document.getElementById('texto');
     var nombre = document.getElementById('nombrepdf');
     documentitouwu.fromHTML(ta, 15, 15);
@@ -89,7 +90,11 @@ export class OcrbyimageComponent implements OnInit {
     var n = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
 
     documentitouwu.save('My Scann OCR' + '.pdf');
+    
 
+  }  
+  subirpdf(){
+    
   }
 
  Export2Doc(element, filename = '') {
