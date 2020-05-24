@@ -12,7 +12,7 @@
       </div>
       <div class="form-group">
         <button class="btn btn-dark btn-block " type="button"
-          (click)="validarImagen('cameraInput')" id="btn-abrir-popup">¡Hacer OCR!</button>
+          (click)="validarImagen('cameraInput')" id="btn-abrir-popup" >¡Hacer OCR!</button>
           <!-- <button id="btn-abrir-popup" class="btn-abrir-popup" (click)="validarImagen()">Abrir Ventana Emergente</button> -->
       </div>
     
@@ -35,13 +35,13 @@
 <div class="container" id="nombrepdf">
   <input type="text" id="nombre">
 </div> -->
-<form id="form1" name="form1"type="Submit"> 
+<form id="form1" name="form1"type="Submit" name="formdescargar"> 
   <br>
   <div class="row container text-center">
     <!--Boton de Descargar PDF-->
     <div class="col-sm-3">
       <div class="container">
-        <input class="btn btn-dark" (click)="crearPdf()" type="button" value="Descargar Pdf" /> 
+        <input class="btn btn-dark" id="dwnPdf" (click)="crearPdf()" type="submit" value="Descargar Pdf" /> 
       </div>
       <br>
     </div>
@@ -57,7 +57,7 @@
     <div class="col-sm-3">
       <div class="container">
         
-        <input class="btn btn-dark" (click)="ExportTxt('texto', 'My Scann OCR')" type="button" value="Descargar Txt" /> 
+        <input id="dwnTxt" class="btn btn-dark" (click)="ExportTxt('texto', 'My Scann OCR')" type="button" value="Descargar Txt" /> 
         
       </div>
     </div>

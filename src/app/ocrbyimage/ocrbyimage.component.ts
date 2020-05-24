@@ -49,6 +49,7 @@ export class OcrbyimageComponent implements OnInit {
 
   validarImagen() {
     if (this.image == null) {
+
       var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
         overlay = document.getElementById('overlay'),
         popup = document.getElementById('popup'),
@@ -57,18 +58,23 @@ export class OcrbyimageComponent implements OnInit {
       btnAbrirPopup.addEventListener('click', function () {
         overlay.classList.add('active');
         popup.classList.add('active');
+
       });
 
       btnCerrarPopup.addEventListener('click', function (e) {
         e.preventDefault();
         overlay.classList.remove('active');
         popup.classList.remove('active');
+        document.location.reload();
+
       });
+      
+        this.desactivaBotones();
     }
-    else if (this.image != null) {
+    else if(this.image!=null)
+    {
       this.onUpload();
     }
-
   }
 
   onUpload() {
@@ -77,8 +83,7 @@ export class OcrbyimageComponent implements OnInit {
   }
 
 
-  crearPdf() 
-  {
+  crearPdf() {
 
 
     var documentitouwu = new jsPDF('p', 'pt', 'letter');
@@ -89,82 +94,95 @@ export class OcrbyimageComponent implements OnInit {
     var n = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
 
     documentitouwu.save('My Scann OCR' + '.pdf');
+    document.location.reload();
 
   }
 
- Export2Doc(element, filename = '') {
-    
-  var valorTexto= document.getElementById(element).innerHTML;
-  var btnBlock = document.getElementById('dwlddoc');
-  if (valorTexto == null) {
-   btnBlock.setAttribute('disabled','disabled');
-  }
-  else {
-  var html = document.getElementById(element).innerHTML;
-  var blob = new Blob([''], {
-   type: 'application/word'
-  });
+  Export2Doc(element, filename = '') {
 
-  //     // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-  var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+    var valorTexto = document.getElementById(element).innerHTML;
+    var btnBlock = document.getElementById('dwlddoc');
+    if (valorTexto == null) {
+      btnBlock.setAttribute('disabled', 'disabled');
+    }
+    else {
+      var html = document.getElementById(element).innerHTML;
+      var blob = new Blob([''], {
+        type: 'application/word'
+      });
 
-  //     // Le damos un nombre al archivo con su extension
-   filename = filename ? `${filename}.doc` : 'document.docx';
+      //     // Especificamos la URL y el meta Charset con utf-8 para que sea legible
+      var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
 
-  //     // Creamos un link (abstracto) para descargar el archivo 
-   var downloadLink = document.createElement("a");
+      //     // Le damos un nombre al archivo con su extension
+      filename = filename ? `${filename}.doc` : 'document.docx';
 
-  document.body.appendChild(downloadLink);
+      //     // Creamos un link (abstracto) para descargar el archivo 
+      var downloadLink = document.createElement("a");
 
-  if (navigator.msSaveOrOpenBlob) {
-   navigator.msSaveOrOpenBlob(blob, filename);
-   } else {
-  //       // Creamos un link para el archivo
-   downloadLink.href = url;
+      document.body.appendChild(downloadLink);
 
-  //       // Configuramos el nombre ya seteado
-  downloadLink.download = filename;
+      if (navigator.msSaveOrOpenBlob) {
+        navigator.msSaveOrOpenBlob(blob, filename);
+      } else {
+        //       // Creamos un link para el archivo
+        downloadLink.href = url;
 
-    //Mandamos a llamar la funcion del Link con una funcion
-   downloadLink.click();
-   }
+        //       // Configuramos el nombre ya seteado
+        downloadLink.download = filename;
 
-  }
+        //Mandamos a llamar la funcion del Link con una funcion
+        downloadLink.click();
+      }
 
-  document.body.removeChild(downloadLink);
+    }
+
+    document.body.removeChild(downloadLink);
+    document.location.reload();
   }
   ExportTxt(element, filename = '') {
-   var html = document.getElementById(element).innerHTML;
+    var html = document.getElementById(element).innerHTML;
 
-  var blob = new Blob([''], {
-    type: 'txt'
+    var blob = new Blob([''], {
+      type: 'txt'
     });
 
-  //   // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-  var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+    //   // Especificamos la URL y el meta Charset con utf-8 para que sea legible
+    var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
 
-  //   // Le damos un nombre al archivo con su extension
-   filename = filename ? `${filename}.txt` : 'document.txt';
+    //   // Le damos un nombre al archivo con su extension
+    filename = filename ? `${filename}.txt` : 'document.txt';
 
     // Creamos un link (abstracto) para descargar el archivo 
-   var downloadLink = document.createElement("a");
+    var downloadLink = document.createElement("a");
 
-     document.body.appendChild(downloadLink);
+    document.body.appendChild(downloadLink);
 
     if (navigator.msSaveOrOpenBlob) {
       navigator.msSaveOrOpenBlob(blob, filename);
-   } else {
-       // Creamos un link para el archivo
-    downloadLink.href = url;
+    } else {
+      // Creamos un link para el archivo
+      downloadLink.href = url;
 
-  //     // Configuramos el nombre ya seteado
-    downloadLink.download = filename;
+      //     // Configuramos el nombre ya seteado
+      downloadLink.download = filename;
 
-  //     Mandamos a llamar la funcion del Link con una funcion
-    downloadLink.click();
+      //     Mandamos a llamar la funcion del Link con una funcion
+      downloadLink.click();
     }
 
-     document.body.removeChild(downloadLink);
-   }
+    document.body.removeChild(downloadLink);
+    document.location.reload();
+  }
+  desactivaBotones() {
+    var dsbltexto = document.getElementById('texto');
+    dsbltexto.setAttribute('disabled', 'true');
+    var dsblPdf = document.getElementById('dwnPdf');
+    dsblPdf.setAttribute('disabled', 'true');
+    var dsblWord = document.getElementById('dwlddoc');
+    dsblWord.setAttribute('disabled', 'true');
+    var dsblTxt = document.getElementById('dwnTxt');
+    dsblTxt.setAttribute('disabled', 'true');
    
+  }
 }

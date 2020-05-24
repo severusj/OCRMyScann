@@ -1,8 +1,9 @@
 Validaciones:
 	*Si la imagen está vacia, mostrar un pop up //listo
-	*Si el textarea no contiene datos, los botones estarán bloqueados
+	*Si el textarea no contiene datos, los botones estarán bloqueados// listo
+	*Si se presiona sobre el boton de hacer OCR y no hay imagen, bloqueara los inputs y botones. //listo
 	*Si un texto se borra del textarea, deberá renderizarlo en el archivo con los datos que están actualmente
-	*Limpiar el input del file y el textarea cada vez que se descarga un archivo
+	*Limpiar el input del file y el textarea cada vez que se descarga un archivo //listo
 	*Hacer que acepte pdf, txt, word
 
-Agregar las demás vistas de (Soporte técnico, contacto, documentación, ayuda )
+Agregar las demás vistas de (Soporte técnico, contacto, documentación, ayuda ) //listo
