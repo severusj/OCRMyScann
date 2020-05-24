@@ -8,7 +8,10 @@ import * as $ from 'jquery';
 import * as docx from "docx";
 import * as fs from "fs";
 import { Document, Packer, Paragraph, TextRun } from "docx";
-
+import { UrlResolver } from '@angular/compiler';
+import { prototype } from 'events';
+import { stringify } from 'querystring';
+ 
 
 @Component({
   selector: 'app-ocrbyimage',
@@ -96,6 +99,9 @@ export class OcrbyimageComponent implements OnInit {
     documentitouwu.save('My Scann OCR' + '.pdf');
     document.location.reload();
 
+  }  
+  subirpdf(){
+    
   }
 
   Export2Doc(element, filename = '') {
