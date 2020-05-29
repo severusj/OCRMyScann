@@ -26,33 +26,29 @@
     </div>
   </div>
 </div>
-<!-- <div class="container">
-  <h4>Introduce acá el nombre con el que deseas guardar el archivo</h4>
-</div>
-<div class="container" id="nombrepdf">
-  <input type="text" id="nombre">
-</div> -->
 <form id="form1" name="form1"type="Submit" name="formdescargar"> 
+  
   <br>
-  <div class="row container text-center">
+  <br>
+  <div class="row">
     <!--Boton de Descargar PDF-->
-    <div class="col-sm-3">
-      <div class="container">
+    <div class="col-sm-3 container">
+      <div class="">
         <input class="btn btn-dark" id="dwnPdf" (click)="crearPdf()" type="submit" value="Descargar Pdf" /> 
       </div>
       <br>
     </div>
     <!--Boton de Descargar Word-->
-    <div class="col-sm-3">
-      <div class="container">
-        <input id="dwlddoc" class="btn btn-dark" (click)="Export2Doc('texto', 'My Scann OCR')" type="button" value="Descargar Word" /> 
+    <div class="col-sm-3 container">
+      <div class="">
+        <input id="dwlddoc" class="btn btn-dark" (click)="Export2Doc('texto', '')" type="button" value="Descargar Word" /> 
       </div>
     </div>
     <br>
     
     <!-- Boton de Descargar TXT-->
-    <div class="col-sm-3">
-      <div class="container">
+    <div class="col-sm-3 container">
+      <div class="">
         
         <input id="dwnTxt" class="btn btn-dark" (click)="ExportTxt('texto', 'My Scann OCR')" type="button" value="Descargar Txt" /> 
         
@@ -76,17 +72,6 @@
     <div class="separator">
 
     </div>
-    <!--<div class="col-sm-3">
-      <div class="container">
-        <input type="button" value="Clear" id="clear"
-        onclick='<META HTTP-EQUIV="Refresh" CONTENT="0;URL=">'> 
-      </div>
-     
-    </div>
-     -->
-     
-   
-
   </div>
   <div class="contenedor">
 		<div class="overlay" id="overlay">

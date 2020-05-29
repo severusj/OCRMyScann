@@ -87,8 +87,11 @@ export class OcrbyimageComponent implements OnInit {
 
 
   crearPdf() {
+    var ta2 = prompt("Ingresa un nombre para el archivo","");
+    alert("Tu archivo se guardo con el nombre: "+ta2)
     var doc = new jsPDF('p', 'pt', 'landscape');
     var ta = document.getElementById('texto');
+    
     var elementHTML = $('#texto').html();
     var f = new Date();
     var n = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
@@ -103,11 +106,15 @@ export class OcrbyimageComponent implements OnInit {
       'width': 400,
       'elementHandlers': specialElementHandlers
     });
-     doc.save('My Scann OCR' + ' ' + n + ' ' + '.pdf');
+     doc.save(ta2 + ' ' + n + ' ' + '.pdf');
   }  
   Export2Doc(element, filename = '') {
 
     var valorTexto = document.getElementById(element).innerHTML;
+    var nombredoc= prompt("Introduce un nombre para el documento en Word: ");
+    alert("Tu archivo se guardo con el nombre: "+nombredoc)
+    var f = new Date();
+    var n = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
     var btnBlock = document.getElementById('dwlddoc');
     if (valorTexto == null) {
       btnBlock.setAttribute('disabled', 'disabled');
@@ -119,10 +126,10 @@ export class OcrbyimageComponent implements OnInit {
       });
 
       //     // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-      var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+      var url = 'data:application/vnd.word;charset=utf-8,' + encodeURIComponent(html);
 
       //     // Le damos un nombre al archivo con su extension
-      filename = filename ? `${filename}.doc` : 'document.docx';
+      filename = nombredoc ? `${nombredoc+' '+n}.doc` : nombredoc+''+n+'.docx';
 
       //     // Creamos un link (abstracto) para descargar el archivo 
       var downloadLink = document.createElement("a");
@@ -149,16 +156,19 @@ export class OcrbyimageComponent implements OnInit {
   }
   ExportTxt(element, filename = '') {
     var html = document.getElementById(element).innerHTML;
-
+    var nombretxt= prompt("Introduce un nombre para el documento en Txt: ");
+    alert("Tu archivo se guardo con el nombre: "+nombretxt);
+    var f = new Date();
+    var n = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
     var blob = new Blob([''], {
       type: 'txt'
     });
 
     //   // Especificamos la URL y el meta Charset con utf-8 para que sea legible
-    var url = 'data:application/vnd.word;charset=utf-8-sig,' + encodeURIComponent(html);
+    var url = 'data:application/vnd.word;charset=utf-8,' + encodeURIComponent(html);
 
     //   // Le damos un nombre al archivo con su extension
-    filename = filename ? `${filename}.txt` : 'document.txt';
+    filename = nombretxt ? `${nombretxt+' '+n}.txt` : nombretxt+'.txt';
 
     // Creamos un link (abstracto) para descargar el archivo 
     var downloadLink = document.createElement("a");
@@ -192,4 +202,5 @@ export class OcrbyimageComponent implements OnInit {
     dsblTxt.setAttribute('disabled', 'true');
    
   }
+
 }
