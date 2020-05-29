@@ -87,23 +87,24 @@ export class OcrbyimageComponent implements OnInit {
 
 
   crearPdf() {
-
-
-    var documentitouwu = new jsPDF('p', 'pt', 'letter');
+    var doc = new jsPDF('p', 'pt', 'landscape');
     var ta = document.getElementById('texto');
-    var nombre = document.getElementById('nombrepdf');
-    documentitouwu.fromHTML(ta, 15, 15);
+    var elementHTML = $('#texto').html();
     var f = new Date();
     var n = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
-
-    documentitouwu.save('My Scann OCR' + '.pdf');
-    document.location.reload();
-
+    doc.setFontSize(10);
+    doc.text('Archivo generado el ' + n,100,50,'center');
+    var specialElementHandlers = {
+      '#textoarea': function (element, renderer) {
+        return true;
+      }
+    };
+    doc.fromHTML(ta, 100, 150, {
+      'width': 400,
+      'elementHandlers': specialElementHandlers
+    });
+     doc.save('My Scann OCR' + ' ' + n + ' ' + '.pdf');
   }  
-  subirpdf(){
-    
-  }
-
   Export2Doc(element, filename = '') {
 
     var valorTexto = document.getElementById(element).innerHTML;
