@@ -25,6 +25,7 @@
     "@angular/router": "^5.2.0",
     "@types/jquery": "^3.3.35",
     "@types/jspdf": "^1.3.3",
+    "angular-cli-ghpages": "^0.6.2",
     "angular-runkit": "^0.6.0",
     "angularfire": "^2.3.0",
     "angularfire2": "^5.4.2",

@@ -5,13 +5,13 @@
       <div class="form-group text-center">
         
         <input class="form-control" type="file" capture="camera"
-          [(ngModel)]="camera" accept="image/*, application/pdf" id="cameraInput"
+           accept="image/*, application/pdf" id="cameraInput"
           name="cameraInput" (change)="onFileSelected($event)">
           <label for="cameraInput" class="btn btninput">Subir Archivo</label>
       </div>
       <div class="form-group">
         <button class="btn btn-dark btn-block " type="button"
-          (click)="validarImagen('cameraInput')" id="btn-abrir-popup" >¡Hacer OCR!</button>
+          (click)="validarImagen()" id="btn-abrir-popup" >¡Hacer OCR!</button>
           <!-- <button id="btn-abrir-popup" class="btn-abrir-popup" (click)="validarImagen()">Abrir Ventana Emergente</button> -->
       </div>
       <div class="row">
@@ -88,7 +88,7 @@
 			</div>
 		</div>
 	</div>
- </form> 
+</form> 
 <footer class="footer-bs">
   <div class="row col-lg-12">
     <div class="col-md-4 footer-brand animated fadeInLeft">
