@@ -107,6 +107,7 @@ export class OcrbyimageComponent implements OnInit {
       'elementHandlers': specialElementHandlers
     });
      doc.save(ta2 + ' ' + n + ' ' + '.pdf');
+     document.location.reload();
   }  
   Export2Doc(element, filename = '') {
 
